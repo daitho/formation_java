@@ -1,7 +1,7 @@
 package ecommerce;
 
 public class Produit {
-	private int code;
+	private String code;
 	private String nom;
 	private double prix_achat;
 	private double prix_vente_ht;
@@ -14,7 +14,7 @@ public class Produit {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Produit(int code, String nom, double prix_achat, double prix_vente_ht, double prix_vente_ttc, double taux,
+	public Produit(String code, String nom, double prix_achat, double prix_vente_ht, double prix_vente_ttc, double taux,
 			Sous_categorie sous_categorie) {
 		super();
 		this.code = code;
@@ -26,11 +26,11 @@ public class Produit {
 		this.sous_categorie = sous_categorie;
 	}
 
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 
