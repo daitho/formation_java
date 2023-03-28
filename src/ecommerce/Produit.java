@@ -3,27 +3,22 @@ package ecommerce;
 public class Produit {
 	private String code;
 	private String nom;
-	private double prix_achat;
-	private double prix_vente_ht;
-	private double prix_vente_ttc;
+	private double prixAchat;
 	private double taux;
-	private Sous_categorie sous_categorie;
+	private SousCategorie sousCategorie;
 	
 	public Produit() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Produit(String code, String nom, double prix_achat, double prix_vente_ht, double prix_vente_ttc, double taux,
-			Sous_categorie sous_categorie) {
+	public Produit(String code, String nom, double prixAchat, double prixVenteHT, double taux,
+			SousCategorie sousCategorie) {
 		super();
 		this.code = code;
 		this.nom = nom;
-		this.prix_achat = prix_achat;
-		this.prix_vente_ht = prix_vente_ht;
-		this.prix_vente_ttc = prix_vente_ttc;
+		this.prixAchat = prixAchat;
 		this.taux = taux;
-		this.sous_categorie = sous_categorie;
+		this.sousCategorie = sousCategorie;
 	}
 
 	public String getCode() {
@@ -42,28 +37,12 @@ public class Produit {
 		this.nom = nom;
 	}
 
-	public double getPrix_achat() {
-		return prix_achat;
+	public double getPrixAchat() {
+		return prixAchat;
 	}
 
-	public void setPrix_achat(double prix_achat) {
-		this.prix_achat = prix_achat;
-	}
-
-	public double getPrix_vente_ht() {
-		return prix_vente_ht;
-	}
-
-	public void setPrix_vente_ht(double prix_vente_ht) {
-		this.prix_vente_ht = prix_vente_ht;
-	}
-
-	public double getPrix_vente_ttc() {
-		return prix_vente_ttc;
-	}
-
-	public void setPrix_vente_ttc(double prix_vente_ttc) {
-		this.prix_vente_ttc = prix_vente_ttc;
+	public void setPrixAchat(double prixAchat) {
+		this.prixAchat = prixAchat;
 	}
 
 	public double getTaux() {
@@ -74,15 +53,14 @@ public class Produit {
 		this.taux = taux;
 	}
 
-	public Sous_categorie getSous_categorie() {
-		return sous_categorie;
+	public SousCategorie getSousCategorie() {
+		return sousCategorie;
 	}
 
-	public void setSous_categorie(Sous_categorie sous_categorie) {
-		this.sous_categorie = sous_categorie;
+	public void setSousCategorie(SousCategorie sousCategorie) {
+		this.sousCategorie = sousCategorie;
 	}
-	
-	
-	
 
+	
+	
 }
