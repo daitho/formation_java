@@ -1,5 +1,6 @@
 package OC;
 
+// Cette classe permet de définir les objets et leurs attributs avec des classes
 public class OpenC {
 
 	public static void main(String[] args) {
