@@ -18,4 +18,8 @@ public class Carre extends FigureGeometrique{
 	public long getPerimetre() {
 		return 4*cote;
 	}
+	
+	public long getAire() {
+		return cote*cote;
+	}
 }

@@ -1,6 +1,7 @@
 package OC;
 
-//Dans Cette class nous allons voir la notion d'héritage
+//Dans Cette class nous allons voir la notion d'héritage et de polymorphisme
+
 public class OpenC2 {
 
 	public static void main(String[] args) {
@@ -22,6 +23,16 @@ class Vehicule{
 }
 
 class Voiture extends Vehicule{
+	
+	@Override
+	void start() {
+		super.start();
+		allumerfeux();
+	}
+	
+	void allumerfeux() {
+		System.out.println("Allumage feux!");
+	}
 	
 }
 
