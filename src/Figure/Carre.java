@@ -5,10 +5,11 @@ public class Carre extends FigureGeometrique{
 	private long cote;
 	
 	
-	public Carre(long cote) {
-		super();
-		this.cote = cote;
-	}
+	Carre(long cote, int x, int y){
+	     //Appel du constructeur de la classe mère FigureGeometrique
+	     super(x, y);
+	     this.cote = cote;
+	  }
 
 	public long getCote() {
 		return cote;
