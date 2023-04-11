@@ -2,7 +2,7 @@ package FormationExercice1;
 
 public class DetailDocument {
 	
-	private int idLigneCommande;
+	private int idDetailDocument;
 	private int quantite;
 	private Produit produit;
 	private double prix;
@@ -11,20 +11,20 @@ public class DetailDocument {
 		super();
 	}
 
-	public DetailDocument(int idLigneCommande, int quantite, Produit produit, double prix) {
+	public DetailDocument(int idDetailDocument, int quantite, Produit produit, double prix) {
 		super();
-		this.idLigneCommande = idLigneCommande;
+		this.idDetailDocument = idDetailDocument;
 		this.quantite = quantite;
 		this.produit = produit;
 		this.prix = prix;
 	}
 
-	public int getIdLigneCommande() {
-		return idLigneCommande;
+	public int getidDetailDocument() {
+		return idDetailDocument;
 	}
 
-	public void setIdLigneCommande(int idLigneCommande) {
-		this.idLigneCommande = idLigneCommande;
+	public void setidDetailDocument(int idDetailDocument) {
+		this.idDetailDocument = idDetailDocument;
 	}
 
 	public int getQuantite() {
