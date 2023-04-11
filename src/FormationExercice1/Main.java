@@ -14,13 +14,24 @@ public class Main {
 		Produit produit6 = new Produit("CC06","Orange",15);
 		
 		Devis devis1 = new Devis();
+		devis1.setClient(client1);
 		devis1.getListe().add(new DetailDocument(1, 12, produit1 , 100));
 		devis1.getListe().add(new DetailDocument(2, 5, produit2 , 50));
 		devis1.getListe().add(new DetailDocument(3, 4, produit4 , 40));
 		devis1.getListe().add(new DetailDocument(4, 9, produit5 , 30));
 		devis1.getListe().add(new DetailDocument(5, 20, produit6 , 15));
 		
+		System.out.println("Nom du client: "+devis1.getClient().getNom()+" "+devis1.getClient().getPrenom());
 		System.out.println("Total devis1 "+devis1.calculMontant()+"€");
+		
+		Commande commande1 = new Commande();
+		commande1.setClient(client2);
+		commande1.getListe().add(new DetailDocument(1,11,produit3,150));
+		commande1.getListe().add(new DetailDocument(2,10,produit5,30));
+		commande1.getListe().add(new DetailDocument(3,20,produit6,15));
+		
+		System.out.println("Nom et prénom: "+devis1.getClient().getNom()+" "+devis1.getClient().getPrenom());
+		System.out.println("Total commande1 "+commande1.calculMontant()+"€");
 
 	}
 
