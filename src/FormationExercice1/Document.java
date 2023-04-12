@@ -36,10 +36,10 @@ public abstract class Document {
 		double total = 0;
 		if(liste != null) {
 			System.out.println("-----------------------------------");
-			System.out.println("|code | Quantité | Produit | Prix |");
+			System.out.println("|code | Quantité | Produit | Libelle | Prix |");
 			System.out.println("-----------------------------------");
 			for(DetailDocument detail : liste) {
-				System.out.println("| "+detail.getidDetailDocument() +" | "+ detail.getQuantite()+" | "+ detail.getProduit().getCodeProduit()+" | "+detail.getPrix()+" | ");
+				System.out.println(detail.toString() );
 				total = total + detail.getQuantite()*detail.getPrix();
 			}
 			System.out.println("------------------------------------");

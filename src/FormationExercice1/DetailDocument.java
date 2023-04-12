@@ -11,12 +11,12 @@ public class DetailDocument {
 		super();
 	}
 
-	public DetailDocument(int idDetailDocument, int quantite, Produit produit, double prix) {
+	public DetailDocument(int idDetailDocument, int quantite, Produit produit) {
 		super();
 		this.idDetailDocument = idDetailDocument;
 		this.quantite = quantite;
 		this.produit = produit;
-		this.prix = prix;
+		this.prix = produit.getPrix();
 	}
 
 	public int getidDetailDocument() {
@@ -51,6 +51,8 @@ public class DetailDocument {
 		this.prix = prix;
 	}
 	
-	
+	public String toString() {
+		return "| "+getidDetailDocument() +" | "+ getQuantite()+" | "+ getProduit().getCodeProduit()+" | "+ getProduit().getLibelle()+" | "+getPrix()+" | ";
+	}
 
 }
