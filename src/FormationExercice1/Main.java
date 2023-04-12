@@ -26,6 +26,7 @@ public class Main {
 		
 		System.out.println("Nom du client: "+devis1.getClient().getNom()+" "+devis1.getClient().getPrenom());
 		System.out.println("Total devis1 "+devis1.calculMontant()+"€");
+		System.out.println(devis1.toString()+"€");
 		
 		Commande commande1 = new Commande();
 		commande1.setClient(mapClient.get(1));
