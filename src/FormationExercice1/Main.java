@@ -1,22 +1,34 @@
 package FormationExercice1;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Main {
 
 	public static void main(String[] args) {
 		
 		//Initialisation de Client
-		Map<Integer, Client> mapClient = new HashMap<Integer, Client>();
-		GestionClient.initialisationClient(mapClient);
 		
-		//Initialisation de       Produit
-		Map<Integer, Produit> mapProduit = new HashMap<Integer, Produit>();
-		GestionProduit.initialisationProduit(mapProduit);
+		GestionClient gestionClient = new GestionClient();
+		gestionClient.initialisationClient();
+		gestionClient.ajoutClient(4, new Client(4,"Max","Louis","Nantes", "0902339232","mlouis@gmail.com"));
+		gestionClient.afficherClient(4);
 		System.out.println();
 		
-		Devis devis1 = new Devis();
+		//Initialisation de Produit
+		GestionProduit gestionProduit = new GestionProduit();
+		gestionProduit.initialisationProduit();
+		gestionProduit.afficherProduit(1);
+		System.out.println();
+		
+		/*
+		GestionDocument devis1 = new GestionDocument();
+		devis1.getDocument().setClient(gestionClient.retrouverClient(1));
+		devis1.ajouterDetailDocument(new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
+		devis1.ajouterDetailDocument(new DetailDocument(2, 5, gestionProduit.retrouverProduit(2)));
+		devis1.ajouterDetailDocument(new DetailDocument(3, 4, gestionProduit.retrouverProduit(4)));
+		devis1.ajouterDetailDocument(new DetailDocument(4, 9, gestionProduit.retrouverProduit(5)));
+		devis1.ajouterDetailDocument(new DetailDocument(5, 20, gestionProduit.retrouverProduit(6)));
+		System.out.println(devis1.toString());
+		
+		 *Devis devis1 = new Devis();
 		devis1.setClient(mapClient.get(1));
 		devis1.getListe().add(new DetailDocument(1, 12, mapProduit.get(1) ));
 		devis1.getListe().add(new DetailDocument(2, 5, mapProduit.get(2)));
@@ -36,6 +48,7 @@ public class Main {
 		
 		System.out.println("Nom et prénom: "+devis1.getClient().getNom()+" "+devis1.getClient().getPrenom());
 		System.out.println("Total commande1 "+commande1.calculMontant()+"€");
+		*/
 
 	}
 
