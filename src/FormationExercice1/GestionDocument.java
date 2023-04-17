@@ -8,7 +8,7 @@ public class GestionDocument {
 	
 	
 	//Ajout
-	public void ajouterDetailDocument(Document document) {
+	public void ajouterDocument(Document document) {
 		if(!verifierDocument(document)) {
 			map.put(document.getCode(), document);
 			System.out.println("Succès !" );
@@ -21,6 +21,17 @@ public class GestionDocument {
 		return document != null && map.containsKey(document.getCode());
 	}
 	
+	public void AjouterLigneProduit(String key, DetailDocument detailDocument) {
+		if(map.containsKey(key)) {
+			map.get(key).getListe().add(detailDocument);
+		}else {
+			System.err.println("Erreur !");
+		}
+	}
 	
+	public void afficherDocument(Document document) {
+		System.out.println("Nom du client: "+document.getClient().getNom()+" "+document.getClient().getPrenom());
+		System.out.println("Montant total "+document.calculMontant()+"€");
+	}
 
 }
