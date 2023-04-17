@@ -1,63 +1,110 @@
 package FormationExercice1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GestionProduit {
 	private Map<Integer, Produit> map;
 	
-	//Initialisation
+	//Initialisation du produit
 		public void initialisationProduit() {
 			map = new HashMap<Integer, Produit>();
-			map.put(1, new Produit("CC01","Pomme",100));
-			map.put(2, new Produit("CC02","Tomate",50));
-			map.put(3, new Produit("CC03","Haricot",60));
-			map.put(4, new Produit("CC04","Mangue",40));
-			map.put(5, new Produit("CC05","Banane",30));
-			map.put(6, new Produit("CC06","Orange",15));
+			
+			ajoutProduit(new Produit(1,"Pomme",100));
+			ajoutProduit(new Produit(2,"Tomate",50));
+			ajoutProduit(new Produit(3,"Haricot",60));
+			ajoutProduit(new Produit(4,"Mangue",40));
+			ajoutProduit(new Produit(5,"Banane",30));
+			ajoutProduit(new Produit(6,"Orange",15));
+			
 			System.out.println("Produit initialisé !" );
 			
 			
 		}
 		
 		//Ajout d'un produit
-		public void ajoutProduit(int key, Produit produit) {
-			boolean ajouter = false;
-			for (Map.Entry<Integer, Produit> entry : map.entrySet()) {
-				if(entry.getKey().equals(key) || entry.getValue().getCodeProduit().equals(produit.getCodeProduit())) {
-					ajouter = true;
-				}
-			}
+		public void ajoutProduit(Produit produit) {
 			
-			if(ajouter == true) {
-				System.out.println("Une erreur s'est produit lors de l'ajout du produit !" );
+			if(!verifierProduit(produit)) {
+				
+				map.put(produit.getCodeProduit(), produit);
+				System.out.println("Produit ajouté !" );
+				
 			}else {
-				map.put(key, produit);
-				System.out.println("produit ajouter !" );
+				System.err.println("Une erreur s'est produit lors de l'ajout du produit !" );
 			}
 		}
 		
-		//Retrouver un Client
+		//Pour verifier si le produit existe
+		private boolean verifierProduit(Produit produit) {
+			return produit != null && map.containsKey(produit.getCodeProduit());
+		}
+		
+		//Retrouver un produit
 	    public Produit retrouverProduit(Integer key) {
 			return map.get(key);
 		}
+	    
+	  //Retrouver un produit par libelle
+	    public List<Produit> rechercherProduitParNom(String nom){
+	    	List<Produit> produits = new ArrayList<>();
+	    	for(Produit produit : map.values()) {
+	    		if(produit.getLibelle().contains(nom)) {
+	    			produits.add(produit);
+	    		}
+	    	}
+	    	return produits;
+	    }
+	    
+	    public List<Produit> rechercherProduitParPrix(double prix){
+	    	List<Produit> produits = new ArrayList<>();
+	    	for(Produit produit : map.values()) {
+	    		if(produit.getPrix() == prix) {
+	    			produits.add(produit);
+	    		}
+	    	}
+	    	return produits;
+	    }
 		
 		//Mise à jour du produit
-		public void miseAJourProduit(int key, Produit produit) {
-			if(produit != null) {
-				map.replace(key, produit);
+		public void miseAJourProduit(Produit produit) {
+			if(verifierProduit(produit)) {
+				map.replace(produit.getCodeProduit(), produit);
 				System.out.println("Produit mise à jour !" );
 			}
 		}
 		
 		//Suppresion d'un produit
-	    public void supprimerProduit(Integer key) {
-			map.remove(key);
+	    public void supprimerProduit(Produit produit) {
+	    	if(verifierProduit(produit)) {
+	    		map.remove(produit.getCodeProduit());
+				System.out.println("Produit supprimé !" );
+			}
+			
+		}
+	    
+	  //afficher produit
+	    public void afficherProduit(Produit produit) {
+	    	if(verifierProduit(produit)) {
+	    		System.out.println("Code: "+produit.getCodeProduit()+", Libelle: "+produit.getLibelle()+", Prix: "+produit.getPrix());
+	    	}else {
+	    		System.err.println("Produit introuvable !");
+	    	}
+	    	
 		}
 	    
 	  //afficher Produit
 	    public void afficherProduit(Integer key) {
-	    	System.out.println("Code: "+map.get(key).getCodeProduit()+", Libelle: "+map.get(key).getLibelle()+", Prix: "+map.get(key).getPrix());
+	    	afficherProduit(retrouverProduit(key));
+		}
+	    
+	  //afficher La liste de Produit
+	    public void afficherProduit(List<Produit> produits) {
+	    	for(Produit produit : produits) {
+	    		afficherProduit(produit);
+	    	}
 		}
 
 }

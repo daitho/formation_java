@@ -2,7 +2,7 @@ package FormationExercice1;
 
 public class Produit {
 	
-	private String codeProduit;
+	private int codeProduit;
 	private String libelle;
 	private double prix;
 	
@@ -12,18 +12,18 @@ public class Produit {
 
 	}
 
-	public Produit(String codeProduit, String libelle, double prix) {
+	public Produit(int codeProduit, String libelle, double prix) {
 		super();
 		this.codeProduit = codeProduit;
 		this.libelle = libelle;
 		this.prix = prix;
 	}
 
-	public String getCodeProduit() {
+	public int getCodeProduit() {
 		return codeProduit;
 	}
 
-	public void setCodeProduit(String codeProduit) {
+	public void setCodeProduit(int codeProduit) {
 		this.codeProduit = codeProduit;
 	}
 

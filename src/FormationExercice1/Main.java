@@ -8,15 +8,19 @@ public class Main {
 		
 		GestionClient gestionClient = new GestionClient();
 		gestionClient.initialisationClient();
-		gestionClient.ajoutClient(4, new Client(4,"Max","Louis","Nantes", "0902339232","mlouis@gmail.com"));
-		gestionClient.afficherClient(4);
+		gestionClient.ajoutClient(new Client(4,"Max","Louis","Nantes", "0902339232","mlouis@gmail.com"));
+		gestionClient.supprimerClient(gestionClient.retrouverClient(1));
+		gestionClient.afficherClient(1);
+		gestionClient.afficherClient(gestionClient.rechercherClientsParNom("M"));
 		System.out.println();
 		
 		//Initialisation de Produit
 		GestionProduit gestionProduit = new GestionProduit();
 		gestionProduit.initialisationProduit();
 		gestionProduit.afficherProduit(1);
+		gestionProduit.afficherProduit(gestionProduit.rechercherProduitParPrix(30));
 		System.out.println();
+		
 		
 		/*
 		GestionDocument devis1 = new GestionDocument();
@@ -28,7 +32,7 @@ public class Main {
 		devis1.ajouterDetailDocument(new DetailDocument(5, 20, gestionProduit.retrouverProduit(6)));
 		System.out.println(devis1.toString());
 		
-		 *Devis devis1 = new Devis();
+		*Devis devis1 = new Devis();
 		devis1.setClient(mapClient.get(1));
 		devis1.getListe().add(new DetailDocument(1, 12, mapProduit.get(1) ));
 		devis1.getListe().add(new DetailDocument(2, 5, mapProduit.get(2)));
