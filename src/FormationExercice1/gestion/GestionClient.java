@@ -1,9 +1,11 @@
-package FormationExercice1;
+package FormationExercice1.gestion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import FormationExercice1.Client;
 
 public class GestionClient {
 	

@@ -1,5 +1,9 @@
 package FormationExercice1;
 
+import FormationExercice1.gestion.GestionClient;
+import FormationExercice1.gestion.GestionFacture;
+import FormationExercice1.gestion.GestionProduit;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -19,7 +23,26 @@ public class Main {
 		gestionProduit.initialisationProduit();
 		gestionProduit.afficherProduit(1);
 		gestionProduit.afficherProduit(gestionProduit.rechercherProduitParPrix(30));
-		System.out.println();
+		System.out.println(gestionProduit.getTaille());
+		
+		GestionFacture gestionFacture = new GestionFacture();
+		gestionFacture.ajouterFacture("1", gestionClient.retrouverClient(1));
+		gestionFacture.afficherFacture(gestionFacture.retrouverFacture("Facture-1"));
+		gestionFacture.ajouterLigneProduit("1", new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
+		gestionFacture.ajouterLigneProduit("1", new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));
+		gestionFacture.ajouterLigneProduit("1", new DetailDocument(3, 20, gestionProduit.retrouverProduit(3)));
+		gestionFacture.ajouterLigneProduit("1", new DetailDocument(4, 122, gestionProduit.retrouverProduit(5)));
+		gestionFacture.ajouterLigneProduit("1", new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));
+		//gestionFacture.afficherFacture("1");
+		
+		/*GestionDocument document = new GestionDocument();
+		document.getDevis().setClient(gestionClient.retrouverClient(1));
+		document.ajouterDetailDocument(new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
+		document.ajouterDetailDocument(new DetailDocument(2, 5, gestionProduit.retrouverProduit(2)));
+		document.ajouterDetailDocument(new DetailDocument(3, 4, gestionProduit.retrouverProduit(4)));
+		document.ajouterDetailDocument(new DetailDocument(4, 9, gestionProduit.retrouverProduit(5)));
+		document.ajouterDetailDocument(new DetailDocument(5, 20, gestionProduit.retrouverProduit(6)));
+		document.afficherDocument("44");*/
 		
 		
 		/*

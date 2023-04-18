@@ -1,21 +1,19 @@
 package FormationExercice1;
 
-public class Commande extends Document {
-	
-	
-	
+public class Facture extends Document {
 
-	public Commande() {
+	public Facture() {
 		super();
+
 	}
 
-	public Commande(String code, String date, double montant, Client client) {
+	public Facture(String code, String date, double montant, Client client) {
 		super(code, date, montant, client);
 	}
 	
 	public String getKey() throws Exception {
 		//throw new Exception("La methode getKey doit être surcharger");
-		return "Commande-"+getCode();
+		return "Facture-"+getCode();
 	}
 	
 	

@@ -1,9 +1,11 @@
-package FormationExercice1;
+package FormationExercice1.gestion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import FormationExercice1.Produit;
 
 public class GestionProduit {
 	private Map<Integer, Produit> map;
@@ -106,5 +108,10 @@ public class GestionProduit {
 	    		afficherProduit(produit);
 	    	}
 		}
+	    
+	    //Afficher la taille de la map
+	    public int getTaille() {
+	    	return map.size();
+	    }
 
 }

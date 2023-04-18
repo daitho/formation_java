@@ -7,7 +7,7 @@ import java.util.List;
 public abstract class Document {
 	
 	private String code;
-	private Date date;
+	private String date;
 	private double montant;
 	private Client client;
 	private List<DetailDocument> liste;
@@ -15,8 +15,12 @@ public abstract class Document {
 	
 	public Document() {
 	}
+	
+	public String getKey() throws Exception {
+		throw new Exception("La methode getKey doit être surcharger");
+	}
 
-	public Document(String code, Date date, double montant, Client client) {
+	public Document(String code, String date, double montant, Client client) {
 		this.code = code;
 		this.date = date;
 		this.montant = montant;
@@ -44,6 +48,7 @@ public abstract class Document {
 			}
 			System.out.println("------------------------------------");
 			liste = new ArrayList<>();
+			this.montant = total;
 		}
 		return total;
 	}
@@ -58,11 +63,11 @@ public abstract class Document {
 		this.code = code;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
