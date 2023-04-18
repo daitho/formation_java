@@ -25,15 +25,16 @@ public abstract class GestionDocument {
 				
 			} catch (Exception e) {
 				e.printStackTrace();
+				System.out.println("Erreur !" );
 			}
 			System.out.println("Succès !" );
 		}
 		
 	}
 	
-	protected void AjouterLigneProduit(String key, DetailDocument detailDocument) {
-		if(!verifierDocument(key)) {
-			map.get(key).getListe().add(detailDocument);
+	protected void AjouterLigneProduit(Document document, DetailDocument detailDocument) {
+		if(!verifierDocument(document.getCode())) {
+			map.get(document.getCode()).getListeDetail().add(detailDocument);
 		}else {
 			System.err.println("Erreur !");
 		}
@@ -57,9 +58,9 @@ public abstract class GestionDocument {
 		return map.get(key);
 	}
 	
-	protected void afficherDocument(String key) {
-		System.out.println("Nom du client: "+map.get(key).getClient().getNom()+" "+map.get(key).getClient().getPrenom());
-		System.out.println("Montant total "+map.get(key).calculMontant()+"€");
+	protected void afficherDocument(Document document) {
+		System.out.println("Nom du client: "+document.getClient().getNom()+" "+document.getClient().getPrenom());
+		System.out.println("Montant total "+document.calculMontant()+"€");
 	}
 	
 	

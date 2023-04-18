@@ -2,6 +2,7 @@ package FormationExercice1.gestion;
 
 import FormationExercice1.Client;
 import FormationExercice1.DetailDocument;
+import FormationExercice1.Document;
 import FormationExercice1.Facture;
 
 public class GestionFacture extends GestionDocument{
@@ -17,18 +18,20 @@ public class GestionFacture extends GestionDocument{
 		Facture facture = new Facture();
 		facture.setCode(code);
 		facture.setClient(client);
-		
-		if(!verifierFacture(facture)) {
-			ajouterDocument(facture);
-			
-			System.out.println("Facture ajouté !");
-		}else {
-			System.err.println("Facture non ajouter");
+		try {
+			facture.setCode(facture.getKey());
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		ajouterDocument(facture);
 	}
 	
-	public void ajouterLigneProduit(String key, DetailDocument detailDocument) {
-		AjouterLigneProduit(getKey(key), detailDocument);
+	public void ajouterLigneProduit(Document document, DetailDocument detailDocument) {
+		try {
+			AjouterLigneProduit(document, detailDocument);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void afficherFacture(Facture facture) {
@@ -39,8 +42,8 @@ public class GestionFacture extends GestionDocument{
 		return  (Facture) retrouverDocument(getKey(key));
 	}
 	
-	public void afficherListeFacture(String key) {
-		afficherDocument(getKey(key));
+	public void afficherListeDetailFacture(Facture facture) {
+		afficherDocument(facture);
 	}
 	
 	public String getKey(String key) {

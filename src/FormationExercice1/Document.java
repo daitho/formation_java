@@ -1,7 +1,6 @@
 package FormationExercice1;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public abstract class Document {
@@ -10,7 +9,7 @@ public abstract class Document {
 	private String date;
 	private double montant;
 	private Client client;
-	private List<DetailDocument> liste;
+	private List<DetailDocument> listeDetail;
 	
 	
 	public Document() {
@@ -29,25 +28,25 @@ public abstract class Document {
 	}
 
 	
-	public List<DetailDocument> getListe() {
-		if(liste == null) {
-			liste = new ArrayList<>();
+	public List<DetailDocument> getListeDetail() {
+		if(listeDetail == null) {
+			listeDetail = new ArrayList<>();
 		}
-		return liste;
+		return listeDetail;
 	}
 
 	public double calculMontant() {
 		double total = 0;
-		if(liste != null) {
+		if(listeDetail != null) {
 			System.out.println("-----------------------------------");
 			System.out.println("|code | Quantité | Produit | Libelle | Prix |");
 			System.out.println("-----------------------------------");
-			for(DetailDocument detail : liste) {
+			for(DetailDocument detail : listeDetail) {
 				System.out.println(detail.toString() );
 				total = total + detail.getQuantite()*detail.getPrix();
 			}
 			System.out.println("------------------------------------");
-			liste = new ArrayList<>();
+			listeDetail = new ArrayList<>();
 			this.montant = total;
 		}
 		return total;
