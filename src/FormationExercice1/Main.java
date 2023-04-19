@@ -6,7 +6,7 @@ import FormationExercice1.gestion.GestionProduit;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		//Initialisation de Client
 		
@@ -29,10 +29,10 @@ public class Main {
 		Facture facture1 = gestionFacture.ajouterFacture(1, gestionClient.retrouverClient(2));
 		System.out.println(facture1.getCode());
 		
-		facture1.jouterLigneDetail().add(new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
-		facture1.jouterLigneDetail().add(new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));
-		facture1.jouterLigneDetail().add(new DetailDocument(3, 20, gestionProduit.retrouverProduit(3)));
-		facture1.jouterLigneDetail().add(new DetailDocument(4, 122, gestionProduit.retrouverProduit(5)));
+		facture1.jouterLigneDetail(new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
+		facture1.jouterLigneDetail(new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));
+		facture1.jouterLigneDetail(new DetailDocument(3, 20, gestionProduit.retrouverProduit(3)));
+		facture1.jouterLigneDetail(new DetailDocument(4, 122, gestionProduit.retrouverProduit(5)));
 		System.out.println(facture1.toString());
 //		facture1.getListeDetail().set(1, new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));
 //		facture1.getListeDetail().add(new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));

@@ -34,8 +34,10 @@ public abstract class Document {
 		return Collections.unmodifiableList(getListeDetail());
 	}
 	
-	public List<DetailDocument> jouterLigneDetail(){
-		return listeDetail;
+	public void jouterLigneDetail(DetailDocument ligneDetail) throws Exception{
+		if(ligneDetail == null)
+			throw new Exception("La Ligne détail est vide");
+		listeDetail.add(ligneDetail);
 	}
 
 	public double calculMontant() {
@@ -95,7 +97,7 @@ public abstract class Document {
 		try {
 			return  getKey()+
 					"\nNom du client: "+this.client.getNom()+" "+this.client.getPrenom()+""
-					+"Date=" + this.date+""
+					+"Date : " + this.date+""
 					+ "\nMontant total "+calculMontant()+"€";
 		} catch (Exception e) {
 			e.printStackTrace();
