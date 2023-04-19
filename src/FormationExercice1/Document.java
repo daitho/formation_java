@@ -36,7 +36,7 @@ public abstract class Document {
 	
 	public void jouterLigneDetail(DetailDocument ligneDetail) throws Exception{
 		if(ligneDetail == null)
-			throw new Exception("La Ligne détail est vide");
+			throw new Exception("La ligne détail est vide");
 		listeDetail.add(ligneDetail);
 	}
 
