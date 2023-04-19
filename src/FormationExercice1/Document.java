@@ -31,7 +31,7 @@ public abstract class Document {
 
 	
 	public List<DetailDocument> getListeDetail() {
-		return Collections.unmodifiableList(getListeDetail());
+		return Collections.unmodifiableList(listeDetail);
 	}
 	
 	public void jouterLigneDetail(DetailDocument ligneDetail) throws Exception{
@@ -51,7 +51,6 @@ public abstract class Document {
 				total = total + detail.getQuantite()*detail.getPrix();
 			}
 			System.out.println("------------------------------------");
-			listeDetail = new ArrayList<>();
 			this.montant = total;
 		}
 		return this.montant;

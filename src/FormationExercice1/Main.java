@@ -34,6 +34,7 @@ public class Main {
 		facture1.jouterLigneDetail(new DetailDocument(3, 20, gestionProduit.retrouverProduit(3)));
 		facture1.jouterLigneDetail(new DetailDocument(4, 122, gestionProduit.retrouverProduit(5)));
 		System.out.println(facture1.toString());
+		System.out.println(facture1.getListeDetail().get(1).getQuantite());
 //		facture1.getListeDetail().set(1, new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));
 //		facture1.getListeDetail().add(new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));
 		
