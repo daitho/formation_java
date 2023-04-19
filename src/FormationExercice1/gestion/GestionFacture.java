@@ -29,7 +29,7 @@ public class GestionFacture extends GestionDocument{
 	}
 	
 	public void afficherFacture(Facture facture) {
-		System.out.println(facture.getCode());
+		System.out.println(facture.getClient().getNom());
 	}
 	
 	public Facture retrouverFacture(String key) {
