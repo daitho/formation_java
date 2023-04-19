@@ -9,7 +9,7 @@ public class Commande extends Document {
 		super();
 	}
 
-	public Commande(String code, String date, double montant, Client client) {
+	public Commande(int code, String date, double montant, Client client) {
 		super(code, date, montant, client);
 	}
 	

@@ -9,7 +9,7 @@ public class Devis extends Document {
 		super();
 	}
 
-	public Devis(String code, String date, double montant, Client client, List<DetailDocument> liste) {
+	public Devis(int code, String date, double montant, Client client, List<DetailDocument> liste) {
 		super(code, date, montant, client);
 	}
 

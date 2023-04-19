@@ -1,15 +1,18 @@
 package FormationExercice1;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class Document {
 	
-	private String code;
+	private int code;
 	private String date;
 	private double montant;
 	private Client client;
 	private List<DetailDocument> listeDetail;
+	private boolean statutListeDetail = false;
 	
 	
 	public Document() {
@@ -19,7 +22,7 @@ public abstract class Document {
 		throw new Exception("La methode getKey doit être surcharger");
 	}
 
-	public Document(String code, String date, double montant, Client client) {
+	public Document(int code, String date, double montant, Client client) {
 		this.code = code;
 		this.date = date;
 		this.montant = montant;
@@ -31,6 +34,8 @@ public abstract class Document {
 	public List<DetailDocument> getListeDetail() {
 		if(listeDetail == null) {
 			listeDetail = new ArrayList<>();
+		}else if(statutListeDetail == true) {
+			listeDetail = Collections.unmodifiableList(listeDetail);
 		}
 		return listeDetail;
 	}
@@ -49,16 +54,16 @@ public abstract class Document {
 			listeDetail = new ArrayList<>();
 			this.montant = total;
 		}
-		return total;
+		return this.montant;
 	}
 
 	
 
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
 
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 
@@ -88,5 +93,26 @@ public abstract class Document {
 	
 	
 	
+	public boolean isStatutListeDetail() {
+		return statutListeDetail;
+	}
 
+	public void setStatutListeDetail(boolean statutListeDetail) {
+		this.statutListeDetail = statutListeDetail;
+	}
+
+	@Override
+	public String toString() {
+		this.statutListeDetail = true;
+		try {
+			return  getKey()+
+					"\nNom du client: "+this.client.getNom()+" "+this.client.getPrenom()+""
+					+"Date=" + this.date+""
+					+ "\nMontant total "+calculMontant()+"€";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

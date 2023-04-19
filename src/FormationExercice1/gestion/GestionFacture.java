@@ -12,15 +12,11 @@ public class GestionFacture extends GestionDocument{
 		return  super.verifierDocument(facture);
 	}
 	
-	public Facture ajouterFacture(String code, Client client) {
+	public Facture ajouterFacture(int code, Client client) {
 		Facture facture = new Facture();
 		facture.setCode(code);
 		facture.setClient(client);
-		try {
-			facture.setCode(facture.getKey());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 		return (Facture) ajouterDocument(facture);
 	}
 	
@@ -28,17 +24,10 @@ public class GestionFacture extends GestionDocument{
 			AjouterLigneProduit(facture, detailDocument);
 	}
 	
-	public void afficherFacture(Facture facture) {
-		System.out.println(facture.getClient().getNom());
-	}
-	
 	public Facture retrouverFacture(String key) {
 		return  (Facture) retrouverDocument(getKey(key));
 	}
 	
-	public void afficherListeDetailFacture(Facture facture) {
-		afficherDocument(facture);
-	}
 	
 	public String getKey(String key) {
 		return "Facture-"+key;

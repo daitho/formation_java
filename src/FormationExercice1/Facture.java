@@ -7,7 +7,7 @@ public class Facture extends Document {
 
 	}
 
-	public Facture(String code, String date, double montant, Client client) {
+	public Facture(int code, String date, double montant, Client client) {
 		super(code, date, montant, client);
 	}
 	
@@ -15,6 +15,14 @@ public class Facture extends Document {
 		//throw new Exception("La methode getKey doit être surcharger");
 		return "Facture-"+getCode();
 	}
+
+//	@Override
+//	public String toString() {
+//		return "Facture : "+this.calculMontant()+""
+//				+"\n"+super.toString();
+//	}
+	
+	
 	
 	
 
