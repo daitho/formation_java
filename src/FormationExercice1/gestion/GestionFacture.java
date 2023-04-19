@@ -21,7 +21,7 @@ public class GestionFacture extends GestionDocument{
 	}
 	
 	public void ajouterLigneProduit(Facture facture, DetailDocument detailDocument) {
-			AjouterLigneProduit(facture, detailDocument);
+			ajouterLigneProduit(facture, detailDocument);
 	}
 	
 	public Facture retrouverFacture(String key) {

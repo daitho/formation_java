@@ -19,7 +19,7 @@ public class GestionDevis extends GestionDocument{
 	}
 	
 	public void ajouterLigneProduit(Devis devis, DetailDocument detailDocument) {
-			AjouterLigneProduit(devis, detailDocument);
+			ajouterLigneProduit(devis, detailDocument);
 	}
 	
 	public Devis retrouverDevis(String key) {

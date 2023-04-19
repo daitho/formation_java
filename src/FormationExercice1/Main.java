@@ -35,8 +35,10 @@ public class Main {
 		facture1.jouterLigneDetail(new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));
 		facture1.jouterLigneDetail(new DetailDocument(3, 20, gestionProduit.retrouverProduit(3)));
 		facture1.jouterLigneDetail(new DetailDocument(4, 122, gestionProduit.retrouverProduit(5)));
+		System.out.println(facture1.retrouverLigneDetail(3).getPrix());
+		facture1.supprimerLigneDetail(facture1.retrouverLigneDetail(3));
 		System.out.println(facture1.toString());
-		System.out.println(facture1.getListeDetail().get(1).getQuantite());
+		//System.out.println(facture1.getListeDetail().get(1).getQuantite());
 //		facture1.getListeDetail().set(1, new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));
 //		facture1.getListeDetail().add(new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));
 		
@@ -58,6 +60,8 @@ public class Main {
 		commande.jouterLigneDetail(new DetailDocument(4, 50, gestionProduit.retrouverProduit(5)));
 		commande.jouterLigneDetail(new DetailDocument(5, 540, gestionProduit.retrouverProduit(6)));
 		System.out.println(commande.toString());
+	
+		
 		
 //		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
 //		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));

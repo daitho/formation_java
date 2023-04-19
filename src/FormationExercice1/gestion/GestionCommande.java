@@ -21,7 +21,7 @@ public class GestionCommande extends GestionDocument{
 	}
 	
 	public void ajouterLigneProduit(Commande commande, DetailDocument detailDocument) {
-			AjouterLigneProduit(commande, detailDocument);
+			ajouterLigneProduit(commande, detailDocument);
 	}
 	
 	public Commande retrouverCommande(String key) {

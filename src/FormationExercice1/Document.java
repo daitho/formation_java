@@ -36,13 +36,29 @@ public abstract class Document {
 	
 	public void jouterLigneDetail(DetailDocument ligneDetail) throws Exception{
 		if(ligneDetail == null)
-			throw new Exception("La ligne détail est vide");
-		listeDetail.add(ligneDetail);
+			throw new Exception("La ligne est incorrect !");
+		this.listeDetail.add(ligneDetail);
+	}
+	
+	public void supprimerLigneDetail(DetailDocument ligneDucument) throws Exception {
+		if(!this.listeDetail.contains(ligneDucument))
+			throw new Exception("La ligne entrée n'existe pas dans la liste");
+		this.listeDetail.remove(ligneDucument.getidDetailDocument());
+		System.out.println("Ligne "+ligneDucument.getidDetailDocument()+" Supprimé." );
+	}
+	
+	public DetailDocument retrouverLigneDetail(int codeLigneDucument) throws Exception {
+		for(DetailDocument ligneDucument : this.listeDetail) {
+			if(ligneDucument.getidDetailDocument() == codeLigneDucument) {
+				return ligneDucument;
+			}
+		}
+		return null;
 	}
 
 	public double calculMontant() {
 		double total = 0;
-		if(listeDetail != null) {
+		if(this.listeDetail != null) {
 			System.out.println("-----------------------------------");
 			System.out.println("|code | Quantité | Produit | Libelle | Prix |");
 			System.out.println("-----------------------------------");

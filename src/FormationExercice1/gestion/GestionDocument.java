@@ -35,10 +35,14 @@ public abstract class GestionDocument {
 		
 	}
 	
-	protected void AjouterLigneProduit(Document document, DetailDocument detailDocument){
+	protected void ajouterLigneProduit(Document document, DetailDocument detailDocument){
     	for(Document documentMap : map.values()) {
     		if(documentMap.getCode()==(document.getCode())) {
-    			documentMap.getListeDetail().add(detailDocument);
+    			try {
+					documentMap.jouterLigneDetail(detailDocument);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
     			System.out.println("produit ajouté !" );
     		}
     	}
