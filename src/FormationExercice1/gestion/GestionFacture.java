@@ -2,7 +2,6 @@ package FormationExercice1.gestion;
 
 import FormationExercice1.Client;
 import FormationExercice1.DetailDocument;
-import FormationExercice1.Document;
 import FormationExercice1.Facture;
 
 public class GestionFacture extends GestionDocument{
@@ -10,11 +9,10 @@ public class GestionFacture extends GestionDocument{
 	
 	
 	public boolean verifierFacture(Facture facture) {
-		
 		return  super.verifierDocument(facture);
 	}
 	
-	public void ajouterFacture(String code, Client client) {
+	public Facture ajouterFacture(String code, Client client) {
 		Facture facture = new Facture();
 		facture.setCode(code);
 		facture.setClient(client);
@@ -23,15 +21,11 @@ public class GestionFacture extends GestionDocument{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		ajouterDocument(facture);
+		return (Facture) ajouterDocument(facture);
 	}
 	
-	public void ajouterLigneProduit(Document document, DetailDocument detailDocument) {
-		try {
-			AjouterLigneProduit(document, detailDocument);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public void ajouterLigneProduit(Facture facture, DetailDocument detailDocument) {
+			AjouterLigneProduit(facture, detailDocument);
 	}
 	
 	public void afficherFacture(Facture facture) {

@@ -28,7 +28,8 @@ public class Main {
 		GestionFacture gestionFacture = new GestionFacture();
 		gestionFacture.ajouterFacture("1", gestionClient.retrouverClient(1));
 		gestionFacture.afficherFacture(gestionFacture.retrouverFacture("Facture-1"));
-		//gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
+		
+		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
 //		gestionFacture.ajouterLigneProduit("1", new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));
 //		gestionFacture.ajouterLigneProduit("1", new DetailDocument(3, 20, gestionProduit.retrouverProduit(3)));
 //		gestionFacture.ajouterLigneProduit("1", new DetailDocument(4, 122, gestionProduit.retrouverProduit(5)));

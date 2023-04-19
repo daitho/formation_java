@@ -11,6 +11,7 @@ public class Main {
 		
 		System.out.println("Coté : "+carre.getCote());
 		System.out.println("Périmètre : "+carre.getPerimetre());
+		
 		DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		System.out.println(format.format(date));
