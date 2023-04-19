@@ -1,32 +1,37 @@
 package FormationExercice1.gestion;
 
-public class GestionCommande {
+import FormationExercice1.Client;
+import FormationExercice1.Commande;
+import FormationExercice1.DetailDocument;
+import FormationExercice1.Facture;
+
+public class GestionCommande extends GestionDocument{
 	//private Map<Integer, Commande> map = new HashMap<Integer, Commande>();
 	
+	public boolean verifierCommande(Facture facture) {
+		return  super.verifierDocument(facture);
+	}
 	
-	
-	
-	
-	
-	/*public void ajouterCommande(int key, Client client) {
+	public Commande ajouterCommande(int code, Client client) {
+		Commande commande = new Commande();
+		commande.setCode(code);
+		commande.setClient(client);
 		
-		if(!verifierCommande(key)) {
-			DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-			Date date = new Date();
-			Commande commande = new Commande();
-			commande.setClient(client);
-			commande.setDate(date);
-			commande.setCode(key);
-			
-			map.put(key, commande);
-		}else {
-			System.err.println("Erreur !");
-		}
+		return (Commande) ajouterDocument(commande);
+	}
+	
+	public void ajouterLigneProduit(Commande commande, DetailDocument detailDocument) {
+			AjouterLigneProduit(commande, detailDocument);
+	}
+	
+	public Commande retrouverCommande(String key) {
+		return  (Commande) retrouverDocument(getKey(key));
 	}
 	
 	
-	private boolean verifierCommande(int key) {
-		return map.containsKey(key);
-	}*/
+	public String getKey(String key) {
+		return "Facture-"+key;
+	}
+
 
 }

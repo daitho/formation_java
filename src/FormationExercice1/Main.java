@@ -1,6 +1,8 @@
 package FormationExercice1;
 
 import FormationExercice1.gestion.GestionClient;
+import FormationExercice1.gestion.GestionCommande;
+import FormationExercice1.gestion.GestionDevis;
 import FormationExercice1.gestion.GestionFacture;
 import FormationExercice1.gestion.GestionProduit;
 
@@ -40,9 +42,22 @@ public class Main {
 		
 		
 		
+		GestionDevis gestionDevis = new GestionDevis();
+		Devis devis = gestionDevis.ajouterDevis(1, gestionClient.retrouverClient(3));
+		devis.jouterLigneDetail(new DetailDocument(1, 10, gestionProduit.retrouverProduit(1)));
+		devis.jouterLigneDetail(new DetailDocument(2, 122, gestionProduit.retrouverProduit(3)));
+		devis.jouterLigneDetail(new DetailDocument(3, 9, gestionProduit.retrouverProduit(4)));
+		devis.jouterLigneDetail(new DetailDocument(4, 50, gestionProduit.retrouverProduit(6)));
+		System.out.println(devis.toString());
 		
-		
-		
+		GestionCommande gestionCommande = new GestionCommande();
+		Commande commande = gestionCommande.ajouterCommande(1, gestionClient.retrouverClient(4));
+		commande.jouterLigneDetail(new DetailDocument(1, 101, gestionProduit.retrouverProduit(1)));
+		commande.jouterLigneDetail(new DetailDocument(2, 12, gestionProduit.retrouverProduit(3)));
+		commande.jouterLigneDetail(new DetailDocument(3, 55, gestionProduit.retrouverProduit(4)));
+		commande.jouterLigneDetail(new DetailDocument(4, 50, gestionProduit.retrouverProduit(5)));
+		commande.jouterLigneDetail(new DetailDocument(5, 540, gestionProduit.retrouverProduit(6)));
+		System.out.println(commande.toString());
 		
 //		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
 //		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));
