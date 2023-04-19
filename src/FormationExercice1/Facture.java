@@ -1,5 +1,8 @@
 package FormationExercice1;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Facture extends Document {
 
 	public Facture() {
@@ -15,15 +18,11 @@ public class Facture extends Document {
 		//throw new Exception("La methode getKey doit être surcharger");
 		return "Facture-"+getCode();
 	}
-
+	
 //	@Override
 //	public String toString() {
 //		return "Facture : "+this.calculMontant()+""
 //				+"\n"+super.toString();
 //	}
 	
-	
-	
-	
-
 }
