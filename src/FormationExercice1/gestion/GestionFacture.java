@@ -1,7 +1,6 @@
 package FormationExercice1.gestion;
 
 import FormationExercice1.Client;
-import FormationExercice1.DetailDocument;
 import FormationExercice1.Facture;
 
 public class GestionFacture extends GestionDocument{
@@ -20,16 +19,20 @@ public class GestionFacture extends GestionDocument{
 		return (Facture) ajouterDocument(facture);
 	}
 	
-	public void ajouterLigneProduit(Facture facture, DetailDocument detailDocument) {
-			ajouterLigneProduit(facture, detailDocument);
+	public void supprimerFacture(Facture facture) throws Exception {
+		if(super.supprimerDocument(facture)) {
+			System.out.println("Facture supprimée !");
+		}else {
+			System.err.println("Erreur de suppréssion: Facture non supprimée !");
+		}
 	}
 	
-	public Facture retrouverFacture(String key) {
+	public Facture retrouverFacture(int key) {
 		return  (Facture) retrouverDocument(getKey(key));
 	}
 	
 	
-	public String getKey(String key) {
+	public String getKey(int key) {
 		return "Facture-"+key;
 	}
 

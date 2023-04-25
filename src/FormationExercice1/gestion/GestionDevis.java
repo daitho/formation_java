@@ -1,7 +1,6 @@
 package FormationExercice1.gestion;
 
 import FormationExercice1.Client;
-import FormationExercice1.DetailDocument;
 import FormationExercice1.Devis;
 
 public class GestionDevis extends GestionDocument{
@@ -18,8 +17,12 @@ public class GestionDevis extends GestionDocument{
 		return (Devis) ajouterDocument(devis);
 	}
 	
-	public void ajouterLigneProduit(Devis devis, DetailDocument detailDocument) {
-			ajouterLigneProduit(devis, detailDocument);
+	public void supprimerDevis(Devis devis) throws Exception {
+		if(super.supprimerDocument(devis)) {
+			System.out.println("Devis supprimé !");
+		}else {
+			System.err.println("Erreur de suppréssion: Devis non supprimé !");
+		}
 	}
 	
 	public Devis retrouverDevis(String key) {

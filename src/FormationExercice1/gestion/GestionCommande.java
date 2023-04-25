@@ -2,14 +2,12 @@ package FormationExercice1.gestion;
 
 import FormationExercice1.Client;
 import FormationExercice1.Commande;
-import FormationExercice1.DetailDocument;
-import FormationExercice1.Facture;
 
 public class GestionCommande extends GestionDocument{
 	//private Map<Integer, Commande> map = new HashMap<Integer, Commande>();
 	
-	public boolean verifierCommande(Facture facture) {
-		return  super.verifierDocument(facture);
+	public boolean verifierCommande(Commande commande) {
+		return  super.verifierDocument(commande);
 	}
 	
 	public Commande ajouterCommande(int code, Client client) {
@@ -20,8 +18,12 @@ public class GestionCommande extends GestionDocument{
 		return (Commande) ajouterDocument(commande);
 	}
 	
-	public void ajouterLigneProduit(Commande commande, DetailDocument detailDocument) {
-			ajouterLigneProduit(commande, detailDocument);
+	public void supprimerCommande(Commande commande) throws Exception {
+		if(super.supprimerDocument(commande)) {
+			System.out.println("Commande supprimée !");
+		}else {
+			System.err.println("Erreur de suppréssion: Commande non supprimée !");
+		}
 	}
 	
 	public Commande retrouverCommande(String key) {

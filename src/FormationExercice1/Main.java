@@ -31,86 +31,37 @@ public class Main {
 		Facture facture1 = gestionFacture.ajouterFacture(1, gestionClient.retrouverClient(2));
 		System.out.println(facture1.getCode());
 		
-		facture1.jouterLigneDetail(new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
-		facture1.jouterLigneDetail(new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));
-		facture1.jouterLigneDetail(new DetailDocument(3, 20, gestionProduit.retrouverProduit(3)));
-		facture1.jouterLigneDetail(new DetailDocument(4, 122, gestionProduit.retrouverProduit(5)));
+		facture1.ajouterLigneDetail(new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
+		facture1.ajouterLigneDetail(new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));
+		facture1.ajouterLigneDetail(new DetailDocument(3, 20, gestionProduit.retrouverProduit(3)));
+		facture1.ajouterLigneDetail(new DetailDocument(4, 122, gestionProduit.retrouverProduit(5)));
 		System.out.println(facture1.retrouverLigneDetail(3).getPrix());
 		facture1.supprimerLigneDetail(facture1.retrouverLigneDetail(3));
 		System.out.println(facture1.toString());
 		//System.out.println(facture1.getListeDetail().get(1).getQuantite());
 //		facture1.getListeDetail().set(1, new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));
 //		facture1.getListeDetail().add(new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));
-		
+		gestionFacture.supprimerFacture(gestionFacture.retrouverFacture(1));
+		gestionFacture.supprimerFacture(gestionFacture.retrouverFacture(99));
 		
 		
 		GestionDevis gestionDevis = new GestionDevis();
 		Devis devis = gestionDevis.ajouterDevis(1, gestionClient.retrouverClient(3));
-		devis.jouterLigneDetail(new DetailDocument(1, 10, gestionProduit.retrouverProduit(1)));
-		devis.jouterLigneDetail(new DetailDocument(2, 122, gestionProduit.retrouverProduit(3)));
-		devis.jouterLigneDetail(new DetailDocument(3, 9, gestionProduit.retrouverProduit(4)));
-		devis.jouterLigneDetail(new DetailDocument(4, 50, gestionProduit.retrouverProduit(6)));
+		devis.ajouterLigneDetail(new DetailDocument(1, 10, gestionProduit.retrouverProduit(1)));
+		devis.ajouterLigneDetail(new DetailDocument(2, 122, gestionProduit.retrouverProduit(3)));
+		devis.ajouterLigneDetail(new DetailDocument(3, 9, gestionProduit.retrouverProduit(4)));
+		devis.ajouterLigneDetail(new DetailDocument(4, 50, gestionProduit.retrouverProduit(6)));
 		System.out.println(devis.toString());
 		
 		GestionCommande gestionCommande = new GestionCommande();
 		Commande commande = gestionCommande.ajouterCommande(1, gestionClient.retrouverClient(4));
-		commande.jouterLigneDetail(new DetailDocument(1, 101, gestionProduit.retrouverProduit(1)));
-		commande.jouterLigneDetail(new DetailDocument(2, 12, gestionProduit.retrouverProduit(3)));
-		commande.jouterLigneDetail(new DetailDocument(3, 55, gestionProduit.retrouverProduit(4)));
-		commande.jouterLigneDetail(new DetailDocument(4, 50, gestionProduit.retrouverProduit(5)));
-		commande.jouterLigneDetail(new DetailDocument(5, 540, gestionProduit.retrouverProduit(6)));
+		commande.ajouterLigneDetail(new DetailDocument(1, 101, gestionProduit.retrouverProduit(1)));
+		commande.ajouterLigneDetail(new DetailDocument(2, 12, gestionProduit.retrouverProduit(3)));
+		commande.ajouterLigneDetail(new DetailDocument(3, 55, gestionProduit.retrouverProduit(4)));
+		commande.ajouterLigneDetail(new DetailDocument(4, 50, gestionProduit.retrouverProduit(5)));
+		commande.ajouterLigneDetail(new DetailDocument(5, 540, gestionProduit.retrouverProduit(6)));
 		System.out.println(commande.toString());
 	
-		
-		
-//		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
-//		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(2, 15, gestionProduit.retrouverProduit(2)));
-//		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(3, 20, gestionProduit.retrouverProduit(3)));
-//		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(4, 122, gestionProduit.retrouverProduit(5)));
-//		gestionFacture.ajouterLigneProduit(gestionFacture.retrouverFacture("Facture-1"), new DetailDocument(5, 10, gestionProduit.retrouverProduit(6)));
-		//gestionFacture.afficherListeDetailFacture(gestionFacture.retrouverFacture("Facture-1"));
-		
-		/*GestionDocument document = new GestionDocument();
-		document.getDevis().setClient(gestionClient.retrouverClient(1));
-		document.ajouterDetailDocument(new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
-		document.ajouterDetailDocument(new DetailDocument(2, 5, gestionProduit.retrouverProduit(2)));
-		document.ajouterDetailDocument(new DetailDocument(3, 4, gestionProduit.retrouverProduit(4)));
-		document.ajouterDetailDocument(new DetailDocument(4, 9, gestionProduit.retrouverProduit(5)));
-		document.ajouterDetailDocument(new DetailDocument(5, 20, gestionProduit.retrouverProduit(6)));
-		document.afficherDocument("44");*/
-		
-		
-		/*
-		GestionDocument devis1 = new GestionDocument();
-		devis1.getDocument().setClient(gestionClient.retrouverClient(1));
-		devis1.ajouterDetailDocument(new DetailDocument(1, 12, gestionProduit.retrouverProduit(1)));
-		devis1.ajouterDetailDocument(new DetailDocument(2, 5, gestionProduit.retrouverProduit(2)));
-		devis1.ajouterDetailDocument(new DetailDocument(3, 4, gestionProduit.retrouverProduit(4)));
-		devis1.ajouterDetailDocument(new DetailDocument(4, 9, gestionProduit.retrouverProduit(5)));
-		devis1.ajouterDetailDocument(new DetailDocument(5, 20, gestionProduit.retrouverProduit(6)));
-		System.out.println(devis1.toString());
-		
-		*Devis devis1 = new Devis();
-		devis1.setClient(mapClient.get(1));
-		devis1.getListe().add(new DetailDocument(1, 12, mapProduit.get(1) ));
-		devis1.getListe().add(new DetailDocument(2, 5, mapProduit.get(2)));
-		devis1.getListe().add(new DetailDocument(3, 4, mapProduit.get(4)));
-		devis1.getListe().add(new DetailDocument(4, 9, mapProduit.get(5)));
-		devis1.getListe().add(new DetailDocument(5, 20, mapProduit.get(6)));
-		
-		System.out.println("Nom du client: "+devis1.getClient().getNom()+" "+devis1.getClient().getPrenom());
-		System.out.println("Total devis1 "+devis1.calculMontant()+"€");
-		System.out.println(devis1.toString()+"€");
-		
-		Commande commande1 = new Commande();
-		commande1.setClient(mapClient.get(1));
-		commande1.getListe().add(new DetailDocument(1, 11, mapProduit.get(3)));
-		commande1.getListe().add(new DetailDocument(2, 10, mapProduit.get(5)));
-		commande1.getListe().add(new DetailDocument(3, 20, mapProduit.get(6)));
-		
-		System.out.println("Nom et prénom: "+devis1.getClient().getNom()+" "+devis1.getClient().getPrenom());
-		System.out.println("Total commande1 "+commande1.calculMontant()+"€");
-		*/
 
 	}
 

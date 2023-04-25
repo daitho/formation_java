@@ -34,7 +34,7 @@ public abstract class Document {
 		return Collections.unmodifiableList(listeDetail);
 	}
 	
-	public void jouterLigneDetail(DetailDocument ligneDetail) throws Exception{
+	public void ajouterLigneDetail(DetailDocument ligneDetail) throws Exception{
 		if(ligneDetail == null)
 			throw new Exception("La ligne est incorrect !");
 		this.listeDetail.add(ligneDetail);

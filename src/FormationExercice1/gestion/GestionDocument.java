@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import FormationExercice1.DetailDocument;
 import FormationExercice1.Document;
 
 public abstract class GestionDocument {
@@ -35,27 +34,13 @@ public abstract class GestionDocument {
 		
 	}
 	
-	protected void ajouterLigneProduit(Document document, DetailDocument detailDocument){
-    	for(Document documentMap : map.values()) {
-    		if(documentMap.getCode()==(document.getCode())) {
-    			try {
-					documentMap.jouterLigneDetail(detailDocument);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-    			System.out.println("produit ajouté !" );
-    		}
-    	}
-    }
-	
-//	protected void AjouterLigneProduit(Document document, DetailDocument detailDocument) {
-//		if(!verifierDocument(document.getCode())) {
-//			map.get(document.getCode()).getListeDetail().add(detailDocument);
-//		}else {
-//			System.err.println("Erreur !");
-//		}
-//		
-//	}	
+	protected boolean supprimerDocument(Document document) throws Exception{
+		if(verifierDocument(document)) {
+			map.remove(document.getKey());
+			return true;
+		}
+		return false;
+	}
 	
 	//Pour verifier si le produit existe
 	protected boolean verifierDocument(Document document) {
@@ -72,7 +57,10 @@ public abstract class GestionDocument {
 	}
 	
 	protected Document retrouverDocument(String key) {
-		return map.get(key);
+		if(verifierDocument(key)) {
+			return map.get(key);
+		}
+		return null;
 	}
 	
 	
